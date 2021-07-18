@@ -10,7 +10,7 @@
 <body>
   <p class="heading">Willkommen bei TUfast &#x1F680; </p>
   <p class="">Hier kannst du alle Funktionen entdecken und Einstellungen vornehmen.</p>
-  <img style="max-width: 27%; width: 220px; position: fixed; top: 0px; right:8px;"
+  <img style="max-width: 27%; width: 220px; position: fixed; top: 0px; right:8px; z-index: 100;"
     src="./images/DashboardTutorialSmall.png">
   <p id="welcome"></p>
   <p id="settings_comment"></p>
@@ -42,7 +42,7 @@
       Login-Daten sicher auf diesem PC gespeichert werden.<br>Die Daten werden nur lokal und verschl&uuml;sselt
       gespeichert.<br>
       Du kannst sie jederzeit l&ouml;schen.<br>
-      <font class="grey-text">TUfast nimmt dir auch alle Klicks beim Anmelden ab!</font>
+      <span class="grey-text">TUfast nimmt dir auch alle Klicks beim Anmelden ab!</span>
     </p>
     <form>
       <input placeholder="Nutzername (selma-Login)" type="text" id="username_field"> (ohne @mailbox.tu-dresden.de.)<br>
@@ -62,10 +62,10 @@
   <div class="panel">
     <p>TUfast zeigt die Anzahl deiner ungelesenen Mails im TU-Dresden-Postfach (OWA) als kleines Icon oben rechts neben
       der Rakete an.<br>
-      &nbsp;&nbsp;<img style="vertical-align:middle; height: 17px;" src="./images/tufast32.png">&nbsp;keine neuen
+      &nbsp;&nbsp;<img class="invert" style="vertical-align:middle; height: 17px;" src="./images/tufast32.png">&nbsp;keine neuen
       Mails<br>
-      <img style="vertical-align:middle; height: 32px;" src="./images/UnreadMails.png">5 neue Mails<br>
-      <img style="vertical-align:middle; height: 32px;" src="./images/UnreadMails16.PNG">16 neue Mails
+      <img class="invert" style="vertical-align:middle; height: 32px;" src="./images/UnreadMails.png">5 neue Mails<br>
+      <img class="invert" style="vertical-align:middle; height: 32px;" src="./images/UnreadMails16.PNG">16 neue Mails
     </p>
     <p> <text class="grey-text">Das Abrufen der Anzahl deiner ungelesenen Mails kann bis zu 5 Minuten dauern.
         <br>Weil TUfast daf&uuml;r eine spezielle Berechtigung braucht, dr&uuml;cke bitte auf "Erlauben" im folgenden
@@ -94,12 +94,12 @@
         id="open_shortcut_settings">&auml;ndern</a>).<br>
     </p>
     <p>
-      <img style="max-width: 100%; width: 550px; border: 2px solid #eee; padding: 5px; border-radius: 2px;"
+      <img class="invert" style="max-width: 100%; width: 550px; border: 2px solid #eee; padding: 5px; border-radius: 2px;"
         src="./images/DashboardTutorialBig.png">
     </p>
     <p><b>F&uuml;r Power-User &#9889&#9889&#9889</b><br>
-      <font class="">&Ouml;ffne dein Dashboard mit Alt+Q und beginne direkt zu tippen. Wenn du dann Enter dr&uuml;ckst,
-        wird der erste Kurs aus der Liste ge&ouml;ffnet.</font> <br>
+      &Ouml;ffne dein Dashboard mit Alt+Q und beginne direkt zu tippen. Wenn du dann Enter dr&uuml;ckst,
+        wird der erste Kurs aus der Liste ge&ouml;ffnet.<br>
     </p>
 
     <p></p>
@@ -188,7 +188,7 @@
         Damit unterst&uuml;tzt du auch das TUfast-Projekt und das hilft uns sehr &#128578
       </p>
       <p><input type="radio" id="RI_default" name="Rockets" value="RI_default"><label for="RI_default"></label><span
-          class="helper"><img src="RocketIcons/default_128px.png"
+          class="helper"><img src="RocketIcons/default_128px.png" class="invert"
             style="height: 50px;"><text>&nbsp;&nbsp;Standard. Hat jeder.</text></span></p>
     </form>
     </p>

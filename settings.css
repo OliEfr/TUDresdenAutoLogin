@@ -1,3 +1,5 @@
+@import 'palette.css';
+
 body {
     margin-left: 20%;
     margin-right: 20%;
@@ -6,9 +8,20 @@ body {
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 25px;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
 } 
 
 html { overflow-y: scroll; }
+
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 .heading {
     font-size: 20px;
@@ -16,7 +29,15 @@ html { overflow-y: scroll; }
 }
 
 .grey-text {
-  color: grey;
+  color: var(--color-text-secondary);
+}
+
+.red-text {
+  color: var(--color-text-danger);
+}
+
+.green-text {
+  color: var(--color-text-success);
 }
 
 .the-bottom {
@@ -27,7 +48,7 @@ html { overflow-y: scroll; }
 
 
 .red-text {
-  color: darkred;
+  color: var(--color-text-danger);
 }
 
 
@@ -40,10 +61,29 @@ input[type=text], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border-input);
   border-radius: 4px;
   font-size: 14px;
   box-sizing: border-box;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+input[type=text]::placeholder,
+input[type=password]::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+input[type=text]:focus::placeholder,
+input[type=password]:focus::placeholder {
+  opacity: 0;
+}
+
+select {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-input);
+  outline: none;
 }
 
 input::-webkit-input-placeholder {
@@ -56,8 +96,8 @@ input:focus {
 
 button {
   width: 200px;
-  background-color: grey;
-  color: white;
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text);
   padding: 12px 20px;
   margin: 8px 0;
   border: none;
@@ -67,13 +107,13 @@ button {
 }
 
 button:hover {
-  background-color: darkgray;
+  background-color: var(--color-btn-hover-bg);
 }
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text);
   cursor: pointer;
   padding: 18px;
   padding-right: 35px; /* required because arrow-symbol is scaled */
@@ -81,22 +121,24 @@ button:hover {
   text-align: left;
   border: none;
   outline: none;
-  transition: 0.4s;
+  transition: background-color 0.4s ease;
   font-size: 14px;
+  box-shadow: 0 1px 4px rgba(12, 12, 13, 0.1);
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-  background-color: #ccc;
+  background-color: var(--color-btn-active-bg);
 }
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
     padding: 0 18px;
-    background-color: white;
+    background-color: var(--color-bg-tertiary);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    box-shadow: 0 1px 4px rgba(12, 12, 13, 0.1);
 }
 
 .accordion:after {
@@ -104,7 +146,7 @@ button:hover {
     -webkit-transform: rotate(-90deg) scale(2.5 , 2.5);
     transform: rotate(-90deg) scale(2.5 , 2.5);
     font-size: 14px;
-    color: #777;
+    color: var(--color-btn-text);
     float: right;
     margin-left: 5px;
   }
@@ -148,9 +190,13 @@ button:hover {
     top: 0;
     width: 18px;
     height: 18px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border-radio);
     border-radius: 100%;
-    background: #fff;
+    background: var(--color-btn-bg);
+}
+[type="radio"]:hover:checked + label:before,
+[type="radio"]:hover:not(:checked) + label:before {
+  background: var(--color-btn-hover-bg);
 }
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
@@ -187,8 +233,8 @@ button:hover {
 
 .button-accept {
   width: 200px;
-  background-color:rgb(47, 143, 18);
-  color: white;
+  background-color: var(--color-btn-accept-bg);
+  color: var(--color-text-white);
   padding: 12px 19px;
   margin: 8px 0;
   border: none;
@@ -198,13 +244,13 @@ button:hover {
 }
 
 .button-accept:hover {
-  background-color: rgb(44, 190, 0);
+  background-color: var(--color-btn-accept-hover-bg);
 }
 
 .button-deny {
   width: 200px;
-  background-color:darkgrey;
-  color: white;
+  background-color: var(--color-btn-deny-bg);
+  color: var(--color-text-white);
   padding: 12px 19px;
   margin: 8px 0;
   border: none;
@@ -214,8 +260,20 @@ button:hover {
 }
 
 .button-deny:hover {
-  background-color: grey;
+  background-color: var(--color-btn-deny-hover-bg);
 }
 
 
-  
+@media (prefers-color-scheme: dark) {
+  .invert {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  :root {
+    /* chrome, webkit */
+    color-scheme: dark;
+    /* firefox */
+    scrollbar-color: #737373 #38383D;
+  }
+}
+

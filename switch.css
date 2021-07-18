@@ -1,3 +1,5 @@
+@import 'palette.css';
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -40,11 +42,11 @@
   }
   
   input:checked + .slider {
-    background-color: rgb(47, 143, 18);
+    background-color: var(--color-btn-accept-bg);
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px rgb(47, 143, 18);
+    box-shadow: 0 0 1px var(--color-btn-accept-bg);
   }
   
   input:checked + .slider:before {
@@ -64,4 +66,13 @@
 
 input[type="checkbox"]:checked{
   filter: hue-rotate(220deg);
+}
+
+
+/* dark theme */
+
+@media (prefers-color-scheme: dark) {
+  .slider {
+    background-color: #30363d;
+  }
 }

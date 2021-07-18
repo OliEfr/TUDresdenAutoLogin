@@ -1,3 +1,5 @@
+@import 'palette.css';
+
 /* list */
 .list {
   max-height: 450px;
@@ -13,16 +15,16 @@
   margin-left: 5px;
   margin-right: 5px;
   text-decoration: none;
-  color: black;
+  color: var(--color-text-primary);
 }
 
 .list-entry-wrapper {
-  border-bottom: #dddddd solid 1.5px;
+  border-bottom: 1.5px solid var(--color-border-primary);
 }
 
 .list-intro {
   border-radius: 3px;
-  background-color: rgb(222 244 255);
+  background-color: var(--color-bg-info);
   margin: 5px 15px 5px 15px;
   margin: 2px;
   margin-left: 5px;
@@ -32,7 +34,7 @@
 
 .list-outro {
   border-radius: 3px;
-  background-color: rgb(230 255 228);
+  background-color: var(--color-bg-success);
   margin: 5px 15px 5px 15px;
   margin: 2px;
   margin-left: 5px;
@@ -52,20 +54,25 @@
   flex: 100;
   margin-left: 7px;
   margin-right: 5px;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 12px;
-  border: #dddddd solid 1.5px;
+  border: 1.5px solid var(--color-border-input);
   background-image: url("./icons/searchicon.png"); /* Add a search icon to input */
   background-position: 12px 7px; /* Position the search icon */
   background-size: 19px;
   background-repeat: no-repeat; /* Do not repeat the icon image */
   padding: 9px 0px 9px 40px; /* Add some padding */
+
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
-input:focus,
-.list-search:focus {
-  /*outline: none !important;
-    border: #dddddd solid 2px;*/
+.list-search::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.list-search:focus::placeholder {
+  opacity: 0;
 }
 
 .list-entry-text {
@@ -91,43 +98,45 @@ input:focus,
 }
 
 body {
-  border: solid 2px #909090;
-  background-color: #ffffff;
+  border: solid 2px var(--color-border-popup);
+  background-color: var(--color-bg-overlay);
+  color: var(--color-text-primary);
   border-radius: 4px;
   max-width: 510px; /*limit by chrome: 789px*/
   min-width: 510px; /*limit by chrome: 789px*/
   max-height: 590px; /*limit by chrome: 590px*/
   margin: 0px;
   font-size: 12px;
-}
-
-html {
-  background-color: #909090;
+  font-family: Helvetica, sans-serif;
 }
 
 /* Footer */
 .settings-footer {
-  border-top: solid 2px #909090;
-  border-radius: 3px;
-  border-right: none;
+  background-color: var(--color-bg-tertiary);
   box-shadow: 0px -3px 3px rgba(68, 68, 68, 0.3); /* offset-x | offset-y | blur-radius | spread-radius | color */
 }
 
 .settings-footer-bar {
   display: flex;
   height: 30px;
-  border-top: solid 2px #dddddd;
+  border-top: solid 2px var(--color-border-popup);
   border-radius: 0px;
 }
 
+.settings-footer-bar:first-child {
+  border-radius: 3px;
+}
+
 .settings-section {
-  border-right: solid 2px #dddddd;
-  border-left: solid 2px #dddddd;
   display: flex;
   align-items: center;
   justify-content: space-evenly; /*start*/
   padding-left: 4px;
   padding-right: 4px;
+}
+
+.settings-section:not(:last-child) {
+  border-right: solid 2px var(--color-border-popup);
 }
 
 .settings-section-icon {
@@ -166,25 +175,25 @@ html {
   -webkit-box-shadow: inset 0 0 6px rgba(68, 68, 68, 0.3);
   box-shadow: inset 0 0 6px rgba(68, 68, 68, 0.3);
   border-radius: 10px;
-  background-color: #dbdbdb;
+  background-color: var(--color-bg-scrollbar);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 10px;
-  background-color: #dbdbdb;
+  background-color: var(--color-bg-scrollbar);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(68, 68, 68, 0.3);
   box-shadow: inset 0 0 6px rgba(68, 68, 68, 0.3);
-  background-color: #9c9c9c;
+  background-color: var(--color-bg-scrollbar-thumb);
 }
 
 .list-entry:hover,
 .settings-section-icon:hover,
 .select_studiengang_dropdown:hover {
-  background-color: #e5e5e5;
+  background-color: var(--color-btn-hover-bg);
 }
 
 /* Dropdown Button */
@@ -204,7 +213,7 @@ html {
   display: none;
   position: absolute;
   min-width: 180px;
-  background-color: #ffffff;
+  background-color: var(--color-bg-overlay);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   right: 14px;
@@ -221,7 +230,7 @@ html {
 
 /* Change color of dropdown links on hover */
 .select_studiengang_dropdown_content p:hover {
-  background-color: #ddd;
+  background-color: var(--color-btn-hover-bg);
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
@@ -232,4 +241,35 @@ html {
 /*custom cursor for star rating*/
 .starRatingContainer {
   cursor: pointer;
+}
+
+#time {
+  color: var(--color-text-purple);
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .invert {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  .emptyStarRating {
+    filter: invert(0.8)
+  }
+
+  :root {
+    /* chrome, webkit */
+    color-scheme: dark;
+    /* firefox */
+    scrollbar-color: #737373 #38383D;
+  }
 }
